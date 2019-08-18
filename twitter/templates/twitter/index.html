@@ -1,5 +1,11 @@
 {% extends 'twitter/base.html' %}
 {% block content %}
+                    <a href="{% url 'twitter:author-detail' tweet.author.pk %}">
+                        <small class="text-muted">by {{ tweet.author }}</small>
+                    </a>
+             <a href="{% url 'twitter:tweet-detail' tweet.pk %}">
+                        <small class="text-muted">{{ tweet.creation_date|date:"F d, Y" }}</small>
+                    </a>
     {% for tweet in tweets %}
         <article class="media content-section">
             <div class="media-body">
